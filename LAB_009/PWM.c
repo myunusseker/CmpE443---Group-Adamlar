@@ -18,7 +18,7 @@ void PWM_Init() {
 	//Write the Correct Values to TCR for Enabling Counter and PWM
 	PWMX->TCR |= (1<<0);
 	PWMX->TCR |= (1<<3);
-	//PWM_Write(1000);
+	PWM_Write(0);
 }
 
 void PWM_Write(uint32_t value) {
