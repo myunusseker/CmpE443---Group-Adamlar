@@ -1,0 +1,4 @@
+#Problem olabilecek yerler
+
+1. main.c -> init() MMA7455_setMode(/* Buraya ne gelecek aq?*/);
+2. Lab11 -> pdf'teki 2. maddeye komple bir daha bakmamız gerekiyor. 
