@@ -7,14 +7,25 @@
 \begin{document}
 {\huge\textbf {Module: Lap Counter}}
 
-\begin{tabular}{| c | C{4cm} | C{4cm} | C{4cm} |}
+\begin{tabular}{| C{4cm} | C{4cm} | C{4cm} | C{2cm} |}
 \hline
-&\textbf{Function Definition}  & \textbf{Objective} &\textbf{WCET(simulation)}\\
+\textbf{Function Name} &\textbf{Function Definition}  & \textbf{Objective} &\textbf{WCET}\linebreak(simulation)\\
 \hline
-&&&\\
+Ultrasonic\_Init() & Initialization of the Ultrasonic sensor. Functions of the trigger
+and echo pins connected to the LPC board are defined in the IOCON registers& There are 2 data pins to
+communicate with the ultrasonic sensor. Enabling the corresponding pins in the main board, their directions'
+(input or output) is set for echo and trigger pins. So that, the board is able to trigger a calculation
+of the distance and get the incoming signals with echo pin.& \\
+\hline
+Ultrasonic\_Trigger\_Timer\_Init()&Trigger timer initializer. The output for the trigger pin is
+ initialized in this function & Timer 2 is used to synchronize the value(either HIGH or LOW) to the Ultrasonic
+ sensor. To initialized it, this function is used. First the power is enabled to this section with PCONP Register
+ , then counters (Timer counters and Prescale counters) and match values are set appropriately. Last, the
+ function on a match("toggle" in this case) is set. & \\
+\hline
+Ultrasonic\_Capture\_Timer\_Init()&&&\\
 
 
-\hline
 \hline
 \end{tabular}
 \end{document}
