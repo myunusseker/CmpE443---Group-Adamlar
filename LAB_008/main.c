@@ -16,7 +16,7 @@ void init() {
 	Ultrasonic_Start_Trigger_Timer();
 	LCD_Init();
 	LCD_clearDisplay();
-	LCD_write("LAP: "); 
+	LCD_write("LAP: ");
 	LCD_data('0');
 }
 
@@ -30,7 +30,7 @@ void update() {
 			lapCounter++;
 			if(lapCounter == 100) lapCounter = 0;
 			LCD_clearDisplay();
-			LCD_write("LAP: "); 
+			LCD_write("LAP: ");
 			if(lapCounter > 9)
 				LCD_data('0' + (lapCounter/10));
 			LCD_data('0' + (lapCounter%10));
@@ -43,10 +43,9 @@ void update() {
 int main() {
 	init();
 	__enable_irq();
-	
+
 	while(1) {
 		update();
 		__WFI();
 	}
 }
-
