@@ -1,0 +1,17 @@
+
+Component       Type ID          Quickstart Board    Base-board    Off-board 
+
+Lap Counter module
+Ultrasonic      HC-SR04                                                x
+LCD             LCM-S01601DSR                                          x
+Potentiometre   B10K                                                   x
+
+Speed module
+Accelerometer   MMA7455                                   X
+LED                                                                    X
+1K-Resistor                                                            X 
+
+
+Expenses:
+Item                                                                                Cost
+120pcs 10cm male to male + male to female and female to female jumper wire:         $2.5
