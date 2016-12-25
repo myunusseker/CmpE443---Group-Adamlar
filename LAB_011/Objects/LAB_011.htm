@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LAB_011.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LAB_011.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Dec 24 15:24:35 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Dec 24 22:08:13 2016
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -321,12 +321,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Wait_SI
 </UL>
-<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
+<BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_ReadData
 </UL>
 
-<P><STRONG><a name="[42]"></a>I2C_Init</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, i2c.o(i.I2C_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_Init
+<P><STRONG><a name="[44]"></a>I2C_Init</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, i2c.o(i.I2C_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_Init
 </UL>
 
 <P><STRONG><a name="[3d]"></a>I2C_Read</STRONG> (Thumb, 48 bytes, Stack size 28 bytes, i2c.o(i.I2C_Read))
@@ -350,31 +350,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read
 </UL>
 
-<P><STRONG><a name="[41]"></a>MMA7455_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mma7455.o(i.MMA7455_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = MMA7455_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init
-</UL>
-
-<P><STRONG><a name="[4e]"></a>Serial_ReadData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, serial.o(i.Serial_ReadData))
-<BR><BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_IRQHandler
-</UL>
-
-<P><STRONG><a name="[5e]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
-
 <P><STRONG><a name="[3f]"></a>I2C_Start</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, i2c.o(i.I2C_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = I2C_Start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Wait_SI
 </UL>
-<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
+<BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_ReadData
 </UL>
 
 <P><STRONG><a name="[40]"></a>I2C_Stop</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, i2c.o(i.I2C_Stop))
-<BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
+<BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_ReadData
 </UL>
 
@@ -384,10 +370,10 @@ Global Symbols
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_DoRead
 </UL>
 
-<P><STRONG><a name="[43]"></a>I2C_Write</STRONG> (Thumb, 48 bytes, Stack size 28 bytes, i2c.o(i.I2C_Write))
+<P><STRONG><a name="[41]"></a>I2C_Write</STRONG> (Thumb, 48 bytes, Stack size 28 bytes, i2c.o(i.I2C_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = I2C_Write &rArr; I2C_WriteData &rArr; I2C_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
+<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WriteData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_setModeControl
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_getStatus
@@ -395,14 +381,22 @@ Global Symbols
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_read
 </UL>
 
-<P><STRONG><a name="[44]"></a>I2C_WriteData</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, i2c.o(i.I2C_WriteData))
+<P><STRONG><a name="[42]"></a>I2C_WriteData</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, i2c.o(i.I2C_WriteData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = I2C_WriteData &rArr; I2C_Start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Stop
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Start
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_DoWrite
 </UL>
-<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+</UL>
+
+<P><STRONG><a name="[43]"></a>MMA7455_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mma7455.o(i.MMA7455_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = MMA7455_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init
 </UL>
 
 <P><STRONG><a name="[45]"></a>MMA7455_calibrate</STRONG> (Thumb, 148 bytes, Stack size 56 bytes, mma7455.o(i.MMA7455_calibrate))
@@ -417,7 +411,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>MMA7455_getModeControl</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, mma7455.o(i.MMA7455_getModeControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = MMA7455_getModeControl &rArr; I2C_Read &rArr; I2C_ReadData &rArr; I2C_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+<BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_setMode
@@ -426,7 +420,7 @@ Global Symbols
 <P><STRONG><a name="[49]"></a>MMA7455_getStatus</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, mma7455.o(i.MMA7455_getStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = MMA7455_getStatus &rArr; I2C_Read &rArr; I2C_ReadData &rArr; I2C_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+<BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_read
@@ -436,7 +430,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = MMA7455_read &rArr; MMA7455_getStatus &rArr; I2C_Read &rArr; I2C_ReadData &rArr; I2C_Start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_getStatus
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_calibrate
@@ -455,9 +449,13 @@ Global Symbols
 <P><STRONG><a name="[4b]"></a>MMA7455_setModeControl</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, mma7455.o(i.MMA7455_setModeControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MMA7455_setModeControl &rArr; I2C_Write &rArr; I2C_WriteData &rArr; I2C_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
+<BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_setMode
+</UL>
+
+<P><STRONG><a name="[4e]"></a>Serial_ReadData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, serial.o(i.Serial_ReadData))
+<BR><BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_IRQHandler
 </UL>
 
 <P><STRONG><a name="[4f]"></a>Serial_WriteData</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, serial.o(i.Serial_WriteData))
@@ -491,7 +489,7 @@ Global Symbols
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[5f]"></a>__1sprintf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1), UNUSED)
+<P><STRONG><a name="[5e]"></a>__1sprintf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1), UNUSED)
 
 <P><STRONG><a name="[55]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
@@ -499,7 +497,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update
 </UL>
 
-<P><STRONG><a name="[60]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[5f]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+
+<P><STRONG><a name="[60]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
 <P><STRONG><a name="[61]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
@@ -514,7 +514,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_setMode
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_calibrate
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_Init
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA7455_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

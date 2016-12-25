@@ -1,0 +1,11 @@
+.\objects\external.o: Library\External.c
+.\objects\external.o: Library\External.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include\LPC407x_8x_177x_8x.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\external.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\external.o: C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include\system_LPC407x_8x_177x_8x.h
+.\objects\external.o: Library\../ClapCounter.h

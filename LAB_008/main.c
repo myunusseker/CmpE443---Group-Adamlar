@@ -4,10 +4,13 @@
 #include "Library/SystemStructures.h"
 #include "Library/Timer.h"
 #include "Library/LCD.h"
+#include "Library/Serial.h"
+#include <stdio.h>
 
-double distance = 0 ;
+float distance = 0 ;
 char l = 0;
 int flag = 0,lapCounter = 0, carDistanceLimit = 10;
+char stringValue [30];
 
 void init() {
 	Ultrasonic_Init();
@@ -18,6 +21,7 @@ void init() {
 	LCD_clearDisplay();
 	LCD_write("LAP: ");
 	LCD_data('0');
+	Serial_Init();
 }
 
 void update() {
@@ -29,11 +33,16 @@ void update() {
 			flag = 1;
 			lapCounter++;
 			if(lapCounter == 100) lapCounter = 0;
+			LCD_setCursorPositionFirstLine(5);
 			LCD_clearDisplay();
 			LCD_write("LAP: ");
 			if(lapCounter > 9)
 				LCD_data('0' + (lapCounter/10));
 			LCD_data('0' + (lapCounter%10));
+			sprintf(stringValue ,"LAP:%d \t%f\r\n" , lapCounter, distance);
+			serialTransmitData = stringValue;
+			Serial_WriteData(*serialTransmitData++);
+			while(!serialTransmitCompleted);
 		}
 		if(flag == 1 && distance >= carDistanceLimit) flag = 0;
 		ultrasonicSensorNewDataAvailable = 0;
@@ -43,6 +52,10 @@ void update() {
 int main() {
 	init();
 	__enable_irq();
+
+	sprintf(stringValue ,"SYSTEM DIAGNOSIS STARTED\r\n");
+	serialTransmitData = stringValue;
+	Serial_WriteData(*serialTransmitData++);
 
 	while(1) {
 		update();
