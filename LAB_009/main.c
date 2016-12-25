@@ -8,10 +8,10 @@
 #include <stdio.h>
 
 char stringValue [30];
-int x = 0, carOutput = 0;
+int angleX = 0, carOutput = 0;
 int values[3] = {0,0,0};
 
-void init() {
+void TI() {
 	MMA7455_Init();
 	MMA7455_setMode(1);
 	MMA7455_calibrate();
@@ -24,23 +24,39 @@ uint32_t mapAccValue(int acc){
 	return (uint32_t)(acc/63.0*999);
 }
 
-void update() {
-
+// Task Get Acceleration
+void TGA()
+{
 	MMA7455_read(&values[0], &values[1], &values[2]);
-	x = values[0];
-	if(x < 0) x = 0;
-	else if(x > 63) x = 63;
+	angleX = values[0];
+	if(angleX < 0) angleX = 0;
+	else if(angleX > 63) angleX = 63;
+}
+
+//Task Set Speed
+void TSS()
+{
 	carOutput = mapAccValue(x);
 	PWM_Write(carOutput);
+}
+
+// Task System Diagnosis
+void TSD()
+{
 	sprintf(stringValue ,"x, y, z, carOutput= \t%d, \t%d, \t%d \t%d\r\n" , values[0], values[1], values[2], carOutput);
 	serialTransmitData = stringValue;
 	Serial_WriteData(*serialTransmitData++);
 	while(!serialTransmitCompleted);
 }
 
+void update() {
+	TGA();
+	TSS();
+	TSD();
+}
+
 int main() {
-	init();
-	
+	TI();
 	while(1) {
 		update();
 	}
