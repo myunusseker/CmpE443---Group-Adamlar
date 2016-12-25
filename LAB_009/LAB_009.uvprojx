@@ -404,6 +404,21 @@
               <FileType>1</FileType>
               <FilePath>.\CarSpeedOutput.c</FilePath>
             </File>
+            <File>
+              <FileName>I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>MMA7455.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MMA7455.c</FilePath>
+            </File>
+            <File>
+              <FileName>Serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Serial.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
