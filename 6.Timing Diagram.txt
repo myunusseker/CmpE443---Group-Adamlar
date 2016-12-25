@@ -1,4 +1,4 @@
 Name of the ISR		Shared Variable							Priority	WCET		ACET
-TIMER2_IRQHANDLER()	ultrasonicSensorTriggerStart					5		6.9 us		6.32 us
+ISR_ultrasonicTriggerToggler	ultrasonicSensorTriggerStart					5		6.9 us		6.32 us
 			
-TIMER3_IRQHANDLER()	ultrasonicSensorDuration, ultrasonicSensorNewDataAvailable	1		8.5 us		6.1 us
+ISR_echoCaptureCounter	ultrasonicSensorDuration, ultrasonicSensorNewDataAvailable	1		8.5 us		6.1 us
