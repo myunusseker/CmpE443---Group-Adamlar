@@ -23,9 +23,35 @@ Ultrasonic\_Trigger\_Timer\_Init()&Trigger timer initializer. The output for the
  , then counters (Timer counters and Prescale counters) and match values are set appropriately. Last, the
  function on a match("toggle" in this case) is set. & \\
 \hline
-Ultrasonic\_Capture\_Timer\_Init()&&&\\
-
-
+LCD\_init()&Initialization of the LCD and its pins.& LCD is initialized by setting its pins' functionalities on the board,
+and sending correct values to initialize the external driver, ( like 0x03, 0x03,0x03,0x02)&\\
 \hline
+\end{tabular}
+\begin{tabular}{| C{4cm} | C{4cm} | C{4cm} | C{2cm} |}
+\hline
+Ultrasonic\_Capture\_Timer\_Init()& Echo timer initializer for the echo signal of the ultrasonic sensor.&
+First the using PCONP register, the timer is powered on. Then its match registers and timer and prescale timer registers
+are given the appropriate functionalities. This timer is used to count the elapsed time from the transmission of the
+signals to the echo of the sent signals. So that, the distance of the object could be detected.&\\
+\hline
+Serial\_init()&Initialization of the UART 0 & Using UART(Serial communication), the debug information of distance of the detected object
+and the lap count will be sent to the computer. &\\
+\hline
+TU()&Task for Ultrasonic, calculates the distance&The distance is calculated detected by ultrasonic sensor.
+This distance is used to detect whether the car is in the range or not.&\\
+\hline
+TC()& Task for the lap counter & After getting the distance detected, this function checks whether the
+distance is smaller than the threshold, if it is, then the lap count is incremented by one. &\\
+\hline
+\end{tabular}
+\begin{tabular}{| C{4cm} | C{4cm} | C{4cm} | C{2cm} |}
+\hline
+TSD()&Task for system diagnosis, includes sending distance detected and the lap count data from UART
+to PC & In order to debug the code, we are using this function which will be printing the value of
+distance measured and the lap counted.&//
+\hline
+TDi()&This function sets the cursor to the appropriate position, then clears the display starting from the
+cursor, then writes the lap count into the LCD screen.& To meet the requirements specified,
+this function is used. It basically, writes the lap count into the LCD screen.&//
 \end{tabular}
 \end{document}
