@@ -1,0 +1,11 @@
+LCD PINS           LPC4088 PINS
+1                     GND
+2                     VU
+3            to 2. pin of potentiometer
+4                  P0.8 (P12)       
+5                  P0.6 (P14) 
+6                  P0.7 (P13)
+11                 P0.24 (P16)
+12                 P0.25 (P17)
+13                 P0.26 (P18)
+14                 P1.30 (P19)
