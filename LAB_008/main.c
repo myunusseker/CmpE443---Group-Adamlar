@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 int distance = 0 ;
-char l = 0;
+char l = 0, refresh = 0;
 int flag = 0,lapCounter = 0, carDistanceLimit = 10;
 char stringValue [30];
 
@@ -32,12 +32,12 @@ void TI()
 // Task Display
 void TDI()
 {
+	if(refresh == 0) return;
 	LCD_setCursorPositionFirstLine(5);
-	LCD_clearDisplay();
-	LCD_write("LAP: ");
 	if(lapCounter > 9)
 		LCD_data('0' + (lapCounter/10));
 	LCD_data('0' + (lapCounter%10));
+	refresh = 0;
 }
 
 // Task Ultrasonic
@@ -59,6 +59,7 @@ void TC()
 		{
 			flag = 1;
 			lapCounter++;
+			refresh = 1;
 			if(lapCounter == 100) lapCounter = 0;
 		}
 		if(flag == 1 && distance >= carDistanceLimit) flag = 0;
@@ -67,7 +68,7 @@ void TC()
 // Task system diagnosis
 void TSD()
 {
-	sprintf(stringValue ,"LAP:%d \t%f\r\n" , lapCounter, distance);
+	sprintf(stringValue ,"LAP:%d \t%d\r\n" , lapCounter, distance);
 	serialTransmitData = stringValue;
 	Serial_WriteData(*serialTransmitData++);
 	while(!serialTransmitCompleted);

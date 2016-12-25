@@ -60,7 +60,7 @@ void Ultrasonic_Start_Trigger_Timer() {
 	TIMER2 -> TCR |= (1 << 0);
 }
 
-void TIMER2_IRQHandler() {
+void ISR_ultrasonicTriggerToggler() {
 	if(ultrasonicSensorTriggerStart == 0) {
 		//Change MR3 Register Value for Suggested Waiting
 		TIMER2->MR3 = 59990;

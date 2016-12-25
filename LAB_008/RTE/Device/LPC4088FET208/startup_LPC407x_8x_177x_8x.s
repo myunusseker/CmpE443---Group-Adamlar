@@ -74,8 +74,8 @@ __Vectors		DCD		__initial_sp              ; Top of Stack
 				DCD		WDT_IRQHandler            ; 16: Watchdog Timer
 				DCD		TIMER0_IRQHandler         ; 17: Timer0
 				DCD		TIMER1_IRQHandler         ; 18: Timer1
-				DCD		TIMER2_IRQHandler         ; 19: Timer2
-				DCD		TIMER3_IRQHandler         ; 20: Timer3
+				DCD		ISR_ultrasonicTriggerToggler         ; 19: Timer2
+				DCD		ISR_echoCaptureCounter         ; 20: Timer3
 				DCD		UART0_IRQHandler          ; 21: UART0
 				DCD		UART1_IRQHandler          ; 22: UART1
 				DCD		UART2_IRQHandler          ; 23: UART2
@@ -185,8 +185,8 @@ Default_Handler PROC
 				EXPORT  WDT_IRQHandler            [WEAK]
 				EXPORT  TIMER0_IRQHandler         [WEAK]
 				EXPORT  TIMER1_IRQHandler         [WEAK]
-				EXPORT  TIMER2_IRQHandler         [WEAK]
-				EXPORT  TIMER3_IRQHandler         [WEAK]
+				EXPORT  ISR_ultrasonicTriggerToggler         [WEAK]
+				EXPORT  ISR_echoCaptureCounter         [WEAK]
 				EXPORT  UART0_IRQHandler          [WEAK]
 				EXPORT  UART1_IRQHandler          [WEAK]
 				EXPORT  UART2_IRQHandler          [WEAK]
@@ -227,8 +227,8 @@ Default_Handler PROC
 WDT_IRQHandler
 TIMER0_IRQHandler
 TIMER1_IRQHandler
-TIMER2_IRQHandler
-TIMER3_IRQHandler
+ISR_ultrasonicTriggerToggler
+ISR_echoCaptureCounter
 UART0_IRQHandler
 UART1_IRQHandler
 UART2_IRQHandler

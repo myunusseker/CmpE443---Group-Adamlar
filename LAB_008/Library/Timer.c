@@ -20,7 +20,7 @@ void Ultrasonic_Capture_Timer_Init() {
 	NVIC_EnableIRQ(TIMER3_IRQn);
 }
 
-void TIMER3_IRQHandler() {
+void ISR_echoCaptureCounter() {
 	if(ultrasonicSensorCaptureRisingEdge == 1) {
 		LPC_TIM3->CCR = (1 << 1) | (1 << 2);
 		ultrasonicSensorCaptureRisingEdge = 0;
