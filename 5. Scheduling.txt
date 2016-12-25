@@ -1,0 +1,24 @@
+TI
+
+InitializeLCD:          LCD_Init();
+InitializeUART:         Serial_Init();
+InitializeISR:          Ultrasonic_Trigger_Timer_Init();
+                        Ultrasonic_Capture_Timer_Init();
+InitializeTimer:        Ultrasonic_Start_Trigger_Timer();
+
+TD
+getDistance:            Ultra
+
+TC
+Lap Count:
+
+TSD
+sendDataToPC:
+
+TDI
+displayCount:
+
+Shared Variable                 Name of the function                Name of the ISR
+ultrasonicNewDataAvailable,       getDistance                         TIMER3_IRQHANDLER()
+ultrasonicSensorDuration
+
