@@ -1,9 +1,9 @@
 Shared Variable                 Name of the function                Name of the ISR
 
 Lap Counter
-ultrasonicNewDataAvailable          TU                              TIMER3_IRQHANDLER
-ultrasonicSensorDuration            TU                              TIMER3_IRQHANDLER
-ultrasonicSensorTriggerStart        TI                              TIMER2_IRQHANDLER
+ultrasonicNewDataAvailable          TU                              ISR_echoCaptureCounter
+ultrasonicSensorDuration            TU                              ISR_echoCaptureCounter
+ultrasonicSensorTriggerStart        TI                              ISR_ultrasonicTriggerToggler
 
 Speed 
 -
