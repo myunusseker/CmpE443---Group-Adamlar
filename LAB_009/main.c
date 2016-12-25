@@ -36,7 +36,7 @@ void TGA()
 //Task Set Speed
 void TSS()
 {
-	carOutput = mapAccValue(x);
+	carOutput = mapAccValue(angleX);
 	PWM_Write(carOutput);
 }
 
