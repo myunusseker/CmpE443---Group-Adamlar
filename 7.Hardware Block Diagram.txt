@@ -1,5 +1,5 @@
 
-Component       Type ID          Quickstart Board    Base-board    Off-board 
+Component       Type ID          Quickstart Board    Base-board    Off-board
 
 Lap Counter module
 Ultrasonic      HC-SR04                                                x
@@ -9,7 +9,7 @@ Potentiometre   B10K                                                   x
 Speed module
 Accelerometer   MMA7455                                   X
 LED                                                                    X
-1K-Resistor                                                            X 
+1K-Resistor                                                            X
 
 
 Expenses:

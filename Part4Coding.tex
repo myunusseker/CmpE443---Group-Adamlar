@@ -108,24 +108,151 @@ code that we wrote in this section, the data produced is sent to the PC to overs
 \\
 {\huge {Module: Lap Counter}}
 \\
+In this part of the project, we are using Polling with interrupts. When a new data
+is received using the ISR\_echoCaptureCounter, the flag ultrasonicSensorNewDataAvailable is
+set to 1, the pseudo code is as follows:\\
+ISR\_echoCaptureCounter()\{\\ if new data then\\ ultrasonicSensorDuration=duration;
+ultrasonicSensorNewDataAvailable=1; \\
+\}\\
+This ISR is initiated after each 60 milliseconds and called when a signal is echoed back to the sensor.
+This process of repeated initialization and waiting functions are done via the usage of Timer 2 and Timer 3
+together.\\
+While the ISR is not running, the main function polls the flag ultrasonicSensorNewDataAvailable.
+The execution of the main loop is as follows:\\
+while(true)\{\\
+TU();//Poll the flag, if there is new data available, then calculate the distance\\
+TC();//If the new distance is smaller then the threshold, increment the lap Counter\\
+TDI();//Display the lap count value in the LCD\\
+TSD();// System diagnosis, send relevant information using UART to debug\\
+\}\\
+\\
 {\huge {Module: Getting Speed Data from Input Device}}
+\\
+In this section, there is no interrupt used, the code executes in a cycle and reads data from the
+accelerometer. The communication with the accelerometer is done via I2C. An interrupt algorithm could have
+been "Set a timer to repeat infinitely with a frequency, check if the value in accelerometer changed and
+set a flag if it is changed.". However, this has no benefits over polling the data itself with a frequency,
+so we decided that it is more convenient if it is not used. The main schedule of this module program is that:\\
+while(true)\{\\
+TGA();//Poll the value in accelerometer and calculate angle\\
+TSS();//Set the speed of the car using the angle value from acc.\\
+TSD();//Send the debug information to the PC\\
+\}
+\\[0.5in]
+\begin{tabular}{| C{4cm} | C{4cm} | C{5cm} |}
+\hline
+Shared Variable&Name of the function&Name of the ISR\\
+\hline
+ultrasonicNewDataAvailable&TU& ISR\_echoCaptureCounter\\
+\hline
+ultrasonicSensorDuration&TU&ISR\_echoCaptureCounter\\
+\hline
+ultrasonicSensorTriggerStart&TI&ISR\_ultrasonicTriggerToggler\\
+\hline
+\end{tabular}
 \clearpage
 {\huge\textbf {6-Timing Diagram}}
 \\
-{\huge {Module: Lap Counter}}
+\includegraphics[scale=0.5]{Timing_Diagram}
 \\
-{\huge {Module: Getting Speed Data from Input Device}}
+\begin{tabular}{| C{4cm} | C{4cm} | C{1cm} | C{2cm} | C{2cm} |}
+\hline
+Name of the ISR	 &	Shared Variable				&			Priority&	WCET	&	ACET\\
+\hline
+ISR\_ultrasonicTriggerToggler &	ultrasonicSensorTriggerStart		&			5	&	6.9 us	&	6.32 us\\
+\hline
+ISR\_echoCaptureCounter	& ultrasonicSensorDuration, ultrasonicSensorNewDataAvailable&	1	&	8.5 us&		6.1 us\\
+\hline
+\end{tabular}
 \clearpage
 {\huge\textbf {7-Hardware Block Diagram}}
 \\
-{\huge {Module: Lap Counter}}
-\\
-{\huge {Module: Getting Speed Data from Input Device}}
+\begin{tabular}{| C{4cm} | C{4cm} | C{2cm} | C{2cm} | C{2cm} |}
+\hline
+Component &Type ID &Quickstart Board & Base-board & Off-board\\
+\hline
+Ultrasonic  &    HC-SR04  & &&                                             x\\
+\hline
+LCD       &      LCM-S01601DSR &&&                                         x\\
+\hline
+Potentiometre &  B10K  &&&                                                 x\\
+\hline
+Accelerometer &  MMA7455    & &                              X&\\
+\hline
+LED  &  &  &&                                                              X\\
+\hline
+1K-Resistor &&&&            X\\
+\hline
+\end{tabular}
+\\[2in]
+\begin{tabular}{| C{10cm} | C{2cm} |}
+\hline
+Expenses& Cost\\
+\hline
+120pcs 10cm male to male + male to female and female to female jumper wire&\$2.5\\
+\hline
+\end{tabular}
 \clearpage
 {\huge\textbf {8-Board Pin Table}}
-\\
-{\huge {Module: Lap Counter}}
-\\
-{\huge {Module: Getting Speed Data from Input Device}}
+\\[0.5in]
+\begin{tabular}{| C{5cm} | C{5cm} |}
+\hline
+LCD PINS      &     LPC4088 PINS\\
+\hline
+1            &         GND\\
+\hline
+2            &         VU\\
+\hline
+3        &    to 2. pin of potentiometer\\
+\hline
+4 RS      &           P0.8 (P12)       \\
+\hline
+5 RW      &           P0.6 (P14) \\
+\hline
+6 EN       &          P0.7 (P13)\\
+\hline
+11 DATA0    &            P0.24 (P16)\\
+\hline
+12 DATA1     &           P0.25 (P17)\\
+\hline
+13 DATA2      &          P0.26 (P18)\\
+\hline\\
+14 DATA3       &         P1.30 (P19)\\
+\hline
+\end{tabular}
+\\[1in]
+\begin{tabular}{| C{5cm} | C{5cm} |}
+\hline
+Potentiometer&LPC4088 PINS\\
+\hline
+left & Vin\\
+\hline
+right & GND\\
+\hline
+\end{tabular}
+\\[1in]
+\begin{tabular}{| C{5cm} | C{5cm} |}
+\hline
+Ultrasonic&LPC4088 PINS\\
+\hline
+Vcc & Vin\\
+\hline
+GND & GND\\
+\hline
+Trig Trigger & P0.9(P11)\\
+\hline
+Echo Echo & P0.23(P15)\\
+\hline
+\end{tabular}
+\\[1in]
+\begin{tabular}{| C{5cm} | C{5cm} |}
+\hline
+Slot Car&LPC4088 PINS\\
+\hline
+Vcc & P1.5(P28)\\
+\hline
+GND & GND\\
+\hline
+\end{tabular}
 \\
 \end{document}

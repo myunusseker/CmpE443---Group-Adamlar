@@ -1,26 +1,45 @@
 LAP COUNTER MODULE
 
-LCD PINS           LPC4088 PINS
-1                     GND
-2                     VU
-3            to 2. pin of potentiometer
-4 RS                 P0.8 (P12)       
-5 RW                 P0.6 (P14) 
-6 EN                 P0.7 (P13)
-11 DATA0                P0.24 (P16)
-12 DATA1                P0.25 (P17)
-13 DATA2                P0.26 (P18)
-14 DATA3                P1.30 (P19)
+LCD PINS     &      LPC4088 PINS\\
+\hline
+1            &         GND\\
+\hline
+2            &         VU\\
+\hline
+3        &    to 2. pin of potentiometer\\
+\hline
+4 RS      &           P0.8 (P12)       \\
+\hline
+5 RW      &           P0.6 (P14) \\
+\hline
+6 EN       &          P0.7 (P13)\\
+\hline
+11 DATA0    &            P0.24 (P16)\\
+\hline
+12 DATA1     &           P0.25 (P17)\\
+\hline
+13 DATA2      &          P0.26 (P18)\\
+\hline
+14 DATA3       &         P1.30 (P19)\\
+\hline
 
-Potentiometer
-left to Vin
-right to GND
+Potentiometer&\\
+\hline
+left & Vin\\
+\hline
+right & GND\\
+\hline
 
-Ultrasonic
-Vcc to Vin
-GND to GND
-Trig Trigger -> P0.9(P11) -> T2_MAT3 func
-Echo Echo -> P0.23(P15) -> T3_CAP0 func
+Ultrasonic&\\
+\hline
+Vcc to Vin\\
+\hline
+GND to GND\\
+\hline
+Trig Trigger & P0.9(P11)\\
+\hline
+Echo Echo & P0.23(P15)\\
+\hline
 _________________________________________________________________
 
 CAR SPEED MODULE
