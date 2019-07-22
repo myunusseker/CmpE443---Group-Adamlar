@@ -1,7 +1,5 @@
 ﻿# Embedded-ADAMLAR
 
-Selamun aleykum
-
 LAB008 lap counter + UART √
 
 LAB009 PWM + Accelerometer + UART √
